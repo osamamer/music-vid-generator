@@ -1,0 +1,6 @@
+torch
+diffusers
+Pillow
+requests
+beautifulsoup4
+transformers
