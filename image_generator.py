@@ -40,13 +40,13 @@ def generate_pixel_art(song_title, artist_name, lyrics=None, additional_descript
             print("Warning: Running on CPU, which will be slow")
 
         # Prepare the prompt
-        lyrics_summary = clean_text_for_prompt(lyrics) if lyrics else ""
+        lyrics = clean_text_for_prompt(lyrics) if lyrics else ""
 
         # Build a comprehensive prompt
         prompt_parts = [
             f"pixel art album cover for song '{song_title}' by {artist_name}",
             "16-bit style, vibrant colors, detailed",
-            lyrics_summary,
+            f"lyrics: {lyrics}",
             additional_description
         ]
 

@@ -66,4 +66,9 @@ def fetch_lyrics_from_php_api(song_title, artist_name):
         return data.get("lyrics", "Lyrics not found.")
     except requests.RequestException as e:
         print(f"Error fetching lyrics: {e}")
-        return None
+        try:
+            path = os.path.join("lyrics", f"{song_title} - {artist_name}.txt")
+            lyrics = open(path, "r").read()
+            return lyrics
+        except FileNotFoundError:
+            return None
